@@ -1,0 +1,13 @@
+# Weight Agnostic Neural Networks
+
+Link to paper: https://arxiv.org/pdf/1906.04358.pdf
+
+## Overview:
+Traditionally optimization of neural networks involve a search for the most optimal weights, using methods like gradient descent. In this paper, the method presented looks at searching for the most optimal neural network architecture, in an incremental fashion, keeping weights of the neural network constant (each neuron in the neural network has the same shared weights) 
+
+## Write-up:
+From the perspective of search, this paper presents an alternative view. Instead of searching a high dimensional weight space to find optimal space, we can instead look at searching for the best neural network architecture, in an incremental and restrained manner. I view this paper as presenting a more performant method of searching for optimal neural networks in scenarios where lightweight neural networks may be more preferred to a large neural network, given a performance threshold.
+
+Neural network architecture can still have fairly large representational power given a fixed method of determining weights, for example, using a random shared weight across all neurons. The method for determining the weights matters, from the results of the paper, a tuned shared weight performed better than a random shared weight / random weights. Comparing traditional neural network’s representational power to that of neural networks built using architectural search, I think it depends on the depth of the traditional neural networks built and how it is tuned. Traditional neural networks that are task-specific, have a structure that encodes information efficiently, as designed by experts. One example we can look at is image classification, specifically on the MNIST dataset. Using WANNs, researchers were able to obtain a result of 92% accuracy whereas CNNs have been shown to perform up to 99% accuracy on the same dataset.
+
+My personal takeaway from this paper is that WANNs provide a useful methodology of training lighter weight neural networks. With such a method of search, it provides a way of finding a good structure that can do sufficiently well given a task with less computational resources required to train the model. The structure derived by using WANNs could also help inform future designs of structures of neural networks, of why a certain combination or network of modules work better than others. However, to build a good model, it is still critical for an expert to be on the loop, taking this information as a feedback to design better neural network architectures.
